@@ -45,32 +45,32 @@ public class DataPrePopulationCommandLineRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		foodRepository.deleteAll();
-		locationRepository.deleteAll();
-		restaurantRepository.deleteAll();
-		restaurantInventoryRepository.deleteAll();
-		customerRepository.deleteAll();
-		deliverableLocationRespository.deleteAll();
-		
-		List<FoodEntity> foodsList = new ArrayList<>();
-		List<RestaurantEntity> restaurantsList = new ArrayList<>();
-		List<LocationEntity> locationEntityList = new ArrayList<>();
-		List<RestaurantDeliverableLocationEntity> deliverableLocationsList = new ArrayList<>();
-		List<RestaurantInventoryEntity> resInvList = new ArrayList<>();
-		List<CustomerEntity> customerList = new ArrayList<>();
-		IntStream.range(1, 20).forEach(index -> {
-			foodsList.add(prePopulateFoodEntity(index));
-			restaurantsList.add(prePopulateRestaurantEntity(index));
-			resInvList.add(prePopulateRestaurantInventoryEntity(index));
-			customerList.add(prePopulateCustomerEntity(index));
-			locationEntityList.add(prePopulateLocationEntity(index));
-			deliverableLocationsList.add(prePopulateDeliverableLocationEntity(index));
-		});
-		foodRepository.saveAll(foodsList);
-		locationRepository.saveAll(locationEntityList);
-		restaurantRepository.saveAll(restaurantsList);
+//		foodRepository.deleteAll();
+//		locationRepository.deleteAll();
+//		restaurantRepository.deleteAll();
+//		restaurantInventoryRepository.deleteAll();
+//		customerRepository.deleteAll();
+//		deliverableLocationRespository.deleteAll();
+//		
+//		List<FoodEntity> foodsList = new ArrayList<>();
+//		List<RestaurantEntity> restaurantsList = new ArrayList<>();
+//		List<LocationEntity> locationEntityList = new ArrayList<>();
+//		List<RestaurantDeliverableLocationEntity> deliverableLocationsList = new ArrayList<>();
+//		List<RestaurantInventoryEntity> resInvList = new ArrayList<>();
+//		List<CustomerEntity> customerList = new ArrayList<>();
+//		IntStream.range(1, 20).forEach(index -> {
+//			foodsList.add(prePopulateFoodEntity(index));
+//			restaurantsList.add(prePopulateRestaurantEntity(index));
+//			resInvList.add(prePopulateRestaurantInventoryEntity(index));
+//			customerList.add(prePopulateCustomerEntity(index));
+//			locationEntityList.add(prePopulateLocationEntity(index));
+//			deliverableLocationsList.add(prePopulateDeliverableLocationEntity(index));
+//		});
+//		foodRepository.saveAll(foodsList);
+//		locationRepository.saveAll(locationEntityList);
+//		restaurantRepository.saveAll(restaurantsList);
 //		restaurantInventoryRepository.saveAll(resInvList);
-		customerRepository.saveAll(customerList);
+//		customerRepository.saveAll(customerList);
 //		deliverableLocationRespository.saveAll(deliverableLocationsList);
 	}
 

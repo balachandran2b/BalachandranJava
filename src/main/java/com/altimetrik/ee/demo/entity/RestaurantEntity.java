@@ -45,6 +45,9 @@ public class RestaurantEntity {
 	}, inverseJoinColumns = {@JoinColumn(name = "food_id")})
 	private List<FoodEntity> foodsList;
 	
+	@Column(name = "rating")
+	private RestaurantRatingEnum rating;
+	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_date", nullable = false, updatable = false)
@@ -122,6 +125,12 @@ public class RestaurantEntity {
 		this.updatedDate = updatedDate;
 	}
 	
-	
+	public RestaurantRatingEnum getRating() {
+		return rating;
+	}
+
+	public void setRating(RestaurantRatingEnum rating) {
+		this.rating = rating;
+	}
 
 }

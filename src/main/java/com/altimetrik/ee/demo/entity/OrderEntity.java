@@ -1,11 +1,13 @@
 package com.altimetrik.ee.demo.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,7 +31,13 @@ public class OrderEntity {
 	private long restaurantId;
 	
 	@Column(name = "location_code")
-	private int locationCode;
+	private long locationCode;
+	
+	@OneToMany(mappedBy = "order")
+	private List<OrderDetailEntity> orderDetailEntityList;
+	
+	@Column(name = "price")
+	private double price;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -56,7 +64,7 @@ public class OrderEntity {
 		return orderId;
 	}
 
-	public void setOrderId(int orderId) {
+	public void setOrderId(long orderId) {
 		this.orderId = orderId;
 	}
 
@@ -64,7 +72,7 @@ public class OrderEntity {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -72,15 +80,15 @@ public class OrderEntity {
 		return restaurantId;
 	}
 
-	public void setRestaurantId(int restaurantId) {
+	public void setRestaurantId(long restaurantId) {
 		this.restaurantId = restaurantId;
 	}
 
-	public int getLocationCode() {
+	public long getLocationCode() {
 		return locationCode;
 	}
 
-	public void setLocationCode(int locationCode) {
+	public void setLocationCode(long locationCode) {
 		this.locationCode = locationCode;
 	}
 
@@ -100,6 +108,20 @@ public class OrderEntity {
 		this.updatedDate = updatedDate;
 	}
 	
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	
+	public List<OrderDetailEntity> getOrderDetailEntityList() {
+		return orderDetailEntityList;
+	}
+
+	public void setOrderDetailEntityList(List<OrderDetailEntity> orderDetailEntityList) {
+		this.orderDetailEntityList = orderDetailEntityList;
+	}
 
 }
